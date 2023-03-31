@@ -1,6 +1,6 @@
 Name:		texlive-subdocs
 Version:	51480
-Release:	1
+Release:	2
 Summary:	Multifile documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/subdocs
