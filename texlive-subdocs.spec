@@ -3,7 +3,7 @@ Version:	51480
 Release:	2
 Summary:	Multifile documents
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/subdocs
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/subdocs
 License:	mit
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/subdocs.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/subdocs.doc.r%{version}.tar.xz
