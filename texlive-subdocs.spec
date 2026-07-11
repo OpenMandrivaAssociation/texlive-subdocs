@@ -1,41 +1,25 @@
-Name:		texlive-subdocs
-Version:	51480
-Release:	2
+%global tl_name subdocs
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.1
+Release:	%{tl_revision}.1
 Summary:	Multifile documents
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/subdocs
 License:	mit
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/subdocs.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/subdocs.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/subdocs.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/subdocs.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This is an experimental package aiming to provide a different
-approach for multidocument works (mainly, books with a document
-per chapter). Unlike the \include mechanism, every subdocument
-is a complete normal LaTeX document and may be typeset
-separately. What the package does is sharing the .aux files.
-The present release is an alpha version, and no attempt has yet
-been made to allow it to work with, say, hyperref.
+This is an experimental package aiming to provide a different approach
+for multidocument works (mainly, books with a document per chapter).
+Unlike the \include mechanism, every subdocument is a complete normal
+LaTeX document and may be typeset separately. What the package does is
+sharing the .aux files. The present release is an alpha version, and no
+attempt has yet been made to allow it to work with, say, hyperref.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/subdocs
-%doc %{_texmfdistdir}/doc/latex/subdocs
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
